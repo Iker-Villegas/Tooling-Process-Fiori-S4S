@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "3.1"
+metadata:
+  name: toolorder
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          url: https://aioss4s0.aio-sap.os.itelligence.de
+          client: '100'
+        app:
+          name: YST_TOOL_ORDER
+          package: YST_XCE_MM_TOOL
+          transport: S4SK900754
+        exclude:
+          - /test/
