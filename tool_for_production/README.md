@@ -1,13 +1,13 @@
 ## Application Details
 |               |
 | ------------- |
-|**Generation Date and Time**<br>Tue Jun 10 2025 10:17:53 GMT+0200 (Central European Summer Time)|
+|**Generation Date and Time**<br>Mon Jun 23 2025 18:02:00 GMT+0200 (Central European Summer Time)|
 |**App Generator**<br>@sap/generator-fiori-elements|
 |**App Generator Version**<br>1.17.1|
 |**Generation Platform**<br>Visual Studio Code|
 |**Template Used**<br>List Report Page V2|
 |**Service Type**<br>SAP System (ABAP On Premise)|
-|**Service URL**<br>https://aioss4s0.aio-sap.os.itelligence.de/sap/opu/odata/sap/YST_XCE_MM_TOOL_UI_PREP|
+|**Service URL**<br>https://aioss4s0.aio-sap.os.itelligence.de/sap/opu/odata/sap/YST_XCE_MM_TOOL_UI_PROD|
 |**Module Name**<br>tool_for_production|
 |**Application Title**<br>Tool for Production|
 |**Namespace**<br>|
@@ -16,11 +16,11 @@
 |**Enable Code Assist Libraries**<br>False|
 |**Enable TypeScript**<br>False|
 |**Add Eslint configuration**<br>False|
-|**Main Entity**<br>MfgOrderToolsOvp|
+|**Main Entity**<br>YST_XCE_MM_TOOL_C_D_MFGORDTOOL|
 
 ## tool_for_production
 
-S4T-XCE-MM: Tool for Production
+S4T-XCE-MM: TLP - Tooling for Production
 
 ### Starting the generated app
 

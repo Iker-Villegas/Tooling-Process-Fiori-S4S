@@ -41,22 +41,14 @@
         <edmx:Include Namespace="com.sap.vocabularies.PDF.v1" Alias="SAP__PDF"/>
     </edmx:Reference>
     <edmx:DataServices m:DataServiceVersion="2.0">
-        <Schema Namespace="cds_yst_xce_mm_tool_ui_prep" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <Schema Namespace="cds_yst_xce_mm_tool_ui_prod" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
             <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
-            <EntityType Name="C_MM_MaterialGroupValueHelpType" sap:label="Material Group Value Help" sap:content-version="1">
-                <Key>
-                    <PropertyRef Name="MaterialGroup"/>
-                </Key>
-                <Property Name="MaterialGroup" Type="Edm.String" Nullable="false" MaxLength="9" sap:display-format="UpperCase" sap:text="MaterialGroupName" sap:label="Product Group"/>
-                <Property Name="MaterialGroupText" Type="Edm.String" MaxLength="60" sap:label="Material Group Text" sap:quickinfo="Description of the Material Group"/>
-                <Property Name="MaterialGroupName" Type="Edm.String" MaxLength="20" sap:label="Product Group Description"/>
-            </EntityType>
-            <EntityType Name="C_MM_MaterialValueHelpType" sap:label="Material Value Help" sap:content-version="1">
+            <EntityType Name="C_MM_MaterialValueHelpType" sap:label="Material Value Help" sap:value-list="true" sap:content-version="1">
                 <Key>
                     <PropertyRef Name="Material"/>
                     <PropertyRef Name="Plant"/>
                 </Key>
-                <Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="18" sap:display-format="UpperCase" sap:text="MaterialName" sap:label="Material" sap:quickinfo="Material Number" sap:value-list="standard"/>
+                <Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="18" sap:display-format="UpperCase" sap:text="MaterialName" sap:label="Material" sap:quickinfo="Material Number"/>
                 <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Plant"/>
                 <Property Name="MaterialName" Type="Edm.String" MaxLength="40" sap:label="Material Description"/>
                 <Property Name="PlantName" Type="Edm.String" MaxLength="30" sap:label="Plant Name"/>
@@ -69,7 +61,7 @@
                 <Property Name="ProductTypeCode" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:text="ProductTypeName" sap:label="Product Type Group"/>
                 <Property Name="ProductTypeName" Type="Edm.String" MaxLength="40" sap:label="Product Type Desc." sap:quickinfo="Product Type Group Description"/>
             </EntityType>
-            <EntityType Name="C_MM_PlantValueHelpType" sap:label="Plant Value Help" sap:content-version="1">
+            <EntityType Name="C_MM_PlantValueHelpType" sap:label="Plant Value Help" sap:value-list="true" sap:content-version="1">
                 <Key>
                     <PropertyRef Name="Plant"/>
                     <PropertyRef Name="PurchasingOrganization"/>
@@ -81,130 +73,42 @@
                 <Property Name="CityName" Type="Edm.String" MaxLength="40" sap:label="City"/>
                 <Property Name="PostalCode" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Postal Code" sap:quickinfo="City postal code"/>
             </EntityType>
-            <EntityType Name="C_MM_SupplierValueHelpType" sap:label="Supplier" sap:content-version="1">
-                <Key>
-                    <PropertyRef Name="Supplier"/>
-                    <PropertyRef Name="CompanyCode"/>
-                </Key>
-                <Property Name="Supplier" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:text="SupplierName" sap:label="Supplier" sap:quickinfo="Account Number of Supplier"/>
-                <Property Name="CompanyCode" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Company Code" sap:value-list="standard"/>
-                <Property Name="SupplierName" Type="Edm.String" MaxLength="80" sap:label="Name of Supplier"/>
-                <Property Name="Country" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Country/Region Key"/>
-                <Property Name="CityName" Type="Edm.String" MaxLength="40" sap:label="City"/>
-                <Property Name="PostalCode" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Postal Code" sap:quickinfo="City postal code"/>
-                <Property Name="Region" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Region" sap:quickinfo="Region (State, Province, County)"/>
-                <Property Name="SortField" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Search term" sap:quickinfo="Sort field"/>
-                <Property Name="FirstName" Type="Edm.String" MaxLength="40" sap:label="First Name" sap:quickinfo="First name of business partner (person)"/>
-                <Property Name="LastName" Type="Edm.String" MaxLength="40" sap:label="Last Name" sap:quickinfo="Last name of business partner (person)"/>
-                <Property Name="OrganizationBPName1" Type="Edm.String" MaxLength="40" sap:label="Name 1" sap:quickinfo="Name 1 of organization"/>
-                <Property Name="OrganizationBPName2" Type="Edm.String" MaxLength="40" sap:label="Name 2" sap:quickinfo="Name 2 of organization"/>
-                <Property Name="OrganizationBPName3" Type="Edm.String" MaxLength="40" sap:label="Name 3" sap:quickinfo="Name 3 of organization"/>
-                <Property Name="OrganizationBPName4" Type="Edm.String" MaxLength="40" sap:label="Name 4" sap:quickinfo="Name 4 of organization"/>
-                <Property Name="AuthorizationGroup" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Authorization" sap:quickinfo="Authorization Group"/>
-                <Property Name="SupplierAccountGroup" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Account Group" sap:quickinfo="Vendor account group"/>
-            </EntityType>
-            <EntityType Name="I_CompanyCodeStdVHType" sap:label="Company Code" sap:value-list="true" sap:content-version="1">
-                <Key>
-                    <PropertyRef Name="CompanyCode"/>
-                </Key>
-                <Property Name="CompanyCode" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:text="CompanyCodeName" sap:label="Company Code"/>
-                <Property Name="CompanyCodeName" Type="Edm.String" MaxLength="25" sap:label="Company Name" sap:quickinfo="Name of Company Code or Company"/>
-            </EntityType>
-            <EntityType Name="I_MaterialStdVHType" sap:label="Material" sap:value-list="true" sap:content-version="1">
-                <Key>
-                    <PropertyRef Name="Material"/>
-                </Key>
-                <Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="18" sap:display-format="UpperCase" sap:text="Material_Text" sap:label="Material" sap:quickinfo="Material Number"/>
-                <Property Name="Material_Text" Type="Edm.String" MaxLength="40" sap:label="Material Description" sap:creatable="false" sap:updatable="false"/>
-            </EntityType>
-            <EntityType Name="ToolsStorLocActType" sap:label="S4T-XCE-MM: TLP - Tools StorLoc SO Act" sap:content-version="1">
+            <EntityType Name="C_MM_StorLocValueHelpType" sap:label="Storage Location Value Help" sap:value-list="true" sap:content-version="1">
                 <Key>
                     <PropertyRef Name="StorageLocation"/>
-                    <PropertyRef Name="SemanticActionId"/>
-                    <PropertyRef Name="SemanticAction"/>
-                    <PropertyRef Name="SemanticObject"/>
-                </Key>
-                <Property Name="StorageLocation" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Storage Location"/>
-                <Property Name="SemanticActionId" Type="Edm.String" Nullable="false" MaxLength="2" sap:display-format="NonNegative" sap:label="SO Action ID" sap:quickinfo="S4T-XCE-MM: TLP - Semantic Object Action ID"/>
-                <Property Name="SemanticAction" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Sem.Object Action" sap:quickinfo="S4T-XCE-MM: TLP - Semantic Object Action"/>
-                <Property Name="SemanticObject" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Semantic Object" sap:quickinfo="S4T-XCE-MM: TLP - Semantic Object"/>
-                <Property Name="SemanticActionName" Type="Edm.String" MaxLength="70" sap:label="Description" sap:quickinfo="VCXI: Description"/>
-            </EntityType>
-            <EntityType Name="BlockedStockOvpType" sap:semantics="aggregate" sap:label="S4T-XCE-MM: TLP - Stock OVP Chart card" sap:content-version="1">
-                <Key>
-                    <PropertyRef Name="ID"/>
-                </Key>
-                <Property Name="ID" Type="Edm.String" Nullable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Material" Type="Edm.String" MaxLength="18" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Material"/>
-                <Property Name="Plant" Type="Edm.String" MaxLength="4" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Plant"/>
-                <Property Name="Supplier" Type="Edm.String" MaxLength="10" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Supplier SID" sap:quickinfo="Supplier for Special Stock"/>
-                <Property Name="MaterialName" Type="Edm.String" MaxLength="40" sap:label="Material Name" sap:quickinfo="Material Description"/>
-                <Property Name="MaterialGroup" Type="Edm.String" MaxLength="9" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:text="MaterialGroupName" sap:label="Product Group"/>
-                <Property Name="MaterialGroupName" Type="Edm.String" MaxLength="20" sap:label="Material Group Description"/>
-                <Property Name="SemanticActionId" Type="Edm.String" MaxLength="2" sap:aggregation-role="dimension" sap:display-format="NonNegative" sap:text="SemanticActionName" sap:label="Semantic Action Id" sap:quickinfo="S4T-XCE-MM: TLP - Semantic Object Action ID"/>
-                <Property Name="SemanticAction" Type="Edm.String" MaxLength="30" sap:aggregation-role="dimension" sap:text="SemanticActionName" sap:label="Semantic Action" sap:quickinfo="S4T-XCE-MM: TLP - Semantic Object Action"/>
-                <Property Name="SemanticActionName" Type="Edm.String" MaxLength="70" sap:label="Semantic Action Name"/>
-                <Property Name="SemanticObject" Type="Edm.String" MaxLength="30" sap:aggregation-role="dimension" sap:label="Semantic Object" sap:quickinfo="S4T-XCE-MM: TLP - Semantic Object"/>
-                <Property Name="NumberOfTools" Type="Edm.Int64" sap:aggregation-role="measure" sap:label="Blocked Tools Count" sap:sortable="false" sap:filterable="false"/>
-            </EntityType>
-            <EntityType Name="BlockedStockSmartFltrType" sap:label="S4T-XCE-MM: TLP - Filter ToolPrep OVP" sap:content-version="1">
-                <Key>
-                    <PropertyRef Name="Supplier"/>
-                    <PropertyRef Name="Material"/>
-                    <PropertyRef Name="MaterialGroup"/>
                     <PropertyRef Name="Plant"/>
                 </Key>
-                <Property Name="Supplier" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Supplier" sap:quickinfo="Supplier for Special Stock"/>
-                <Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="18" sap:display-format="UpperCase" sap:label="Material" sap:quickinfo="Material in Respect of Which Stock is Managed"/>
-                <Property Name="MaterialGroup" Type="Edm.String" Nullable="false" MaxLength="9" sap:display-format="UpperCase" sap:label="Material Group" sap:quickinfo="Product Group"/>
-                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Plant"/>
+                <Property Name="StorageLocation" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:text="StorageLocationName" sap:label="Storage Location"/>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:text="PlantName" sap:label="Plant"/>
+                <Property Name="StorageLocationName" Type="Edm.String" MaxLength="16" sap:label="Storage Loc. Name" sap:quickinfo="Storage Location Name"/>
+                <Property Name="PlantName" Type="Edm.String" MaxLength="30" sap:label="Plant Name"/>
             </EntityType>
-            <EntityType Name="MfgOrderToolsDOvpType" sap:label="S4T-XCE-MM: TLP - Tools ProdOrd OVP card" sap:content-version="1">
+            <EntityType Name="I_MfgOrderStdVHType" sap:label="Manufacturing Order" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ManufacturingOrder"/>
+                </Key>
+                <Property Name="ManufacturingOrder" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="UpperCase" sap:text="ManufacturingOrderText" sap:label="Manufacturing Order" sap:quickinfo="Manufacturing Order ID"/>
+                <Property Name="ManufacturingOrderText" Type="Edm.String" MaxLength="40" sap:label="Order Text" sap:quickinfo="Manufacturing Order Text"/>
+            </EntityType>
+            <EntityType Name="YST_XCE_MM_TOOL_C_D_MFGORDTOOLType" sap:label="S4T-XCE-MM: TLP - Tools for Manufacturing Orders" sap:content-version="1">
                 <Key>
                     <PropertyRef Name="ManufacturingOrder"/>
                     <PropertyRef Name="ProductionResourceTool"/>
+                    <PropertyRef Name="Batch"/>
+                    <PropertyRef Name="StorageLocation"/>
                 </Key>
-                <Property Name="ManufacturingOrder" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="UpperCase" sap:label="Manufacturing Order" sap:quickinfo="Manufacturing Order ID"/>
-                <Property Name="ProductionResourceTool" Type="Edm.String" Nullable="false" MaxLength="40" sap:display-format="UpperCase" sap:text="ToolDescription" sap:label="Production Resource/Tool" sap:quickinfo="Production Resource/Tool Number"/>
+                <Property Name="ManufacturingOrder" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="UpperCase" sap:label="Production Order" sap:quickinfo="Manufacturing Order ID" sap:value-list="standard"/>
+                <Property Name="ProductionResourceTool" Type="Edm.String" Nullable="false" MaxLength="40" sap:display-format="UpperCase" sap:text="ToolDescription" sap:label="Tool" sap:quickinfo="Production Resource/Tool Number" sap:value-list="standard"/>
+                <Property Name="Batch" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Batch" sap:quickinfo="Batch Number (Stock Identifier)"/>
+                <Property Name="StorageLocation" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:text="StorageLocationName" sap:label="Storage Location" sap:value-list="standard"/>
                 <Property Name="MfgOrderPlannedStartDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Planned Start Date" sap:quickinfo="Manufacturing Order Planned Start Date"/>
-                <Property Name="ToolDescription" Type="Edm.String" MaxLength="40" sap:label="Product Description"/>
-            </EntityType>
-            <EntityType Name="MfgOrderToolsOvpType" sap:label="S4T-XCE-MM: TLP - Tools ProdOrd OVP card" sap:content-version="1">
-                <Key>
-                    <PropertyRef Name="ManufacturingOrder"/>
-                    <PropertyRef Name="ProductionResourceTool"/>
-                </Key>
-                <Property Name="ManufacturingOrder" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="UpperCase" sap:label="Manufacturing Order" sap:quickinfo="Manufacturing Order ID"/>
-                <Property Name="ProductionResourceTool" Type="Edm.String" Nullable="false" MaxLength="40" sap:display-format="UpperCase" sap:label="Production Resource/Tool" sap:quickinfo="Production Resource/Tool Number"/>
-                <Property Name="MfgOrderPlannedStartDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Planned Start Date" sap:quickinfo="Manufacturing Order Planned Start Date"/>
-                <Property Name="ToolDescription" Type="Edm.String" MaxLength="40" sap:label="Product Description"/>
-                <Property Name="CalendarYear" Type="Edm.String" MaxLength="4" sap:display-format="NonNegative" sap:label="Calendar Year"/>
-                <Property Name="CalendarQuarter" Type="Edm.String" MaxLength="1" sap:display-format="NonNegative" sap:label="Calendar Quarter"/>
-                <Property Name="CalendarMonth" Type="Edm.String" MaxLength="2" sap:display-format="NonNegative" sap:label="Calendar Month"/>
-                <Property Name="CalendarWeek" Type="Edm.String" MaxLength="2" sap:display-format="NonNegative" sap:label="Calendar Week"/>
-            </EntityType>
-            <EntityType Name="MfgOrderToolsWOvpType" sap:label="S4T-XCE-MM: TLP - Tools ProdOrd OVP card" sap:content-version="1">
-                <Key>
-                    <PropertyRef Name="ManufacturingOrder"/>
-                    <PropertyRef Name="ProductionResourceTool"/>
-                </Key>
-                <Property Name="ManufacturingOrder" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="UpperCase" sap:label="Manufacturing Order" sap:quickinfo="Manufacturing Order ID"/>
-                <Property Name="ProductionResourceTool" Type="Edm.String" Nullable="false" MaxLength="40" sap:display-format="UpperCase" sap:text="ToolDescription" sap:label="Production Resource/Tool" sap:quickinfo="Production Resource/Tool Number"/>
-                <Property Name="MfgOrderPlannedStartDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Planned Start Date" sap:quickinfo="Manufacturing Order Planned Start Date"/>
-                <Property Name="ToolDescription" Type="Edm.String" MaxLength="40" sap:label="Product Description"/>
-            </EntityType>
-            <EntityType Name="ToolLifetimeOvpType" sap:label="S4T-XCE-MM: TLP - Tool Lifetime OVP card" sap:content-version="1">
-                <Key>
-                    <PropertyRef Name="Material"/>
-                    <PropertyRef Name="MaterialBaseUnitOVP"/>
-                </Key>
-                <Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="18" sap:display-format="UpperCase" sap:label="Product" sap:quickinfo="Product Number"/>
-                <Property Name="MaterialBaseUnitOVP" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Base Unit of Measure" sap:semantics="unit-of-measure"/>
-                <Property Name="MaterialNameOVP" Type="Edm.String" MaxLength="40" sap:label="Product Description"/>
-                <Property Name="ToolLifetime" Type="Edm.Decimal" Precision="11" Scale="2" sap:unit="MaterialBaseUnitOVP" sap:label="Tool Lifetime" sap:quickinfo="VCXI-XCS: Tool Lifetime"/>
-                <Property Name="NumberOfUses" Type="Edm.Decimal" Precision="11" Scale="2" sap:unit="MaterialBaseUnitOVP" sap:label="Nr of Uses" sap:quickinfo="VCXI-XCS: Tool Lifetime"/>
-                <Property Name="RemainingUsesOVP" Type="Edm.Decimal" Precision="11" Scale="2" sap:unit="MaterialBaseUnitOVP" sap:label="Remaining Uses" sap:quickinfo="VCXI-XCS: Tool Lifetime"/>
-                <Property Name="LastProductionDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Last Prod. Date"/>
+                <Property Name="Product" Type="Edm.String" MaxLength="18" sap:display-format="UpperCase" sap:text="ProductDescription" sap:label="Material" sap:quickinfo="Product Number" sap:value-list="standard"/>
+                <Property Name="ProductDescription" Type="Edm.String" MaxLength="40" sap:label="Product Description"/>
+                <Property Name="MfgOrderProgressStatusName" Type="Edm.String" MaxLength="60" sap:label="Short Description" sap:quickinfo="Short Text for Fixed Values"/>
+                <Property Name="ToolDescription" Type="Edm.String" MaxLength="40" sap:label="Tool Description" sap:quickinfo="Product Description"/>
+                <Property Name="Plant" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Plant" sap:value-list="standard"/>
+                <Property Name="StorageLocationName" Type="Edm.String" MaxLength="16" sap:label="Storage Loc Name" sap:quickinfo="Storage Location Name"/>
+                <Property Name="StorageInfo" Type="Edm.String" MaxLength="70" sap:label="Storage Information" sap:quickinfo="Characteristic Value"/>
             </EntityType>
             <EntityType Name="SAP__Currency" sap:content-version="1">
                 <Key>
@@ -234,17 +138,17 @@
                 <Property Name="CreatedAt" Type="Edm.DateTime" Nullable="false" Precision="0" sap:label="Time Stamp"/>
                 <Property Name="FileName" Type="Edm.String" Nullable="false" MaxLength="256"/>
                 <Property Name="Title" Type="Edm.String" Nullable="false" MaxLength="256"/>
-                <NavigationProperty Name="Format" Relationship="cds_yst_xce_mm_tool_ui_prep.to_format" FromRole="FromRole_to_format" ToRole="ToRole_to_format"/>
-                <NavigationProperty Name="TableColumns" Relationship="cds_yst_xce_mm_tool_ui_prep.to_tablecolumns" FromRole="FromRole_to_tablecolumns" ToRole="ToRole_to_tablecolumns"/>
-                <NavigationProperty Name="CoverPage" Relationship="cds_yst_xce_mm_tool_ui_prep.to_coverpage" FromRole="FromRole_to_coverpage" ToRole="ToRole_to_coverpage"/>
-                <NavigationProperty Name="Signature" Relationship="cds_yst_xce_mm_tool_ui_prep.to_signature" FromRole="FromRole_to_signature" ToRole="ToRole_to_signature"/>
-                <NavigationProperty Name="PDFStandard" Relationship="cds_yst_xce_mm_tool_ui_prep.to_pdfstandard" FromRole="FromRole_to_pdfstandard" ToRole="ToRole_to_pdfstandard"/>
+                <NavigationProperty Name="Format" Relationship="cds_yst_xce_mm_tool_ui_prod.to_format" FromRole="FromRole_to_format" ToRole="ToRole_to_format"/>
+                <NavigationProperty Name="TableColumns" Relationship="cds_yst_xce_mm_tool_ui_prod.to_tablecolumns" FromRole="FromRole_to_tablecolumns" ToRole="ToRole_to_tablecolumns"/>
+                <NavigationProperty Name="CoverPage" Relationship="cds_yst_xce_mm_tool_ui_prod.to_coverpage" FromRole="FromRole_to_coverpage" ToRole="ToRole_to_coverpage"/>
+                <NavigationProperty Name="Signature" Relationship="cds_yst_xce_mm_tool_ui_prod.to_signature" FromRole="FromRole_to_signature" ToRole="ToRole_to_signature"/>
+                <NavigationProperty Name="PDFStandard" Relationship="cds_yst_xce_mm_tool_ui_prod.to_pdfstandard" FromRole="FromRole_to_pdfstandard" ToRole="ToRole_to_pdfstandard"/>
             </EntityType>
             <EntityType Name="SAP__Format" sap:content-version="1">
                 <Key>
                     <PropertyRef Name="Id"/>
                 </Key>
-                <Property Name="FitToPage" Type="cds_yst_xce_mm_tool_ui_prep.SAP__FitToPage" Nullable="false"/>
+                <Property Name="FitToPage" Type="cds_yst_xce_mm_tool_ui_prod.SAP__FitToPage" Nullable="false"/>
                 <Property Name="Id" Type="Edm.Guid" Nullable="false" sap:label="UUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="FontSize" Type="Edm.Int32" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Orientation" Type="Edm.String" Nullable="false" MaxLength="10" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
@@ -305,8 +209,8 @@
                 <Property Name="MinimumFontSize" Type="Edm.Int32" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
             </ComplexType>
             <Association Name="to_format" sap:content-version="1">
-                <End Type="cds_yst_xce_mm_tool_ui_prep.SAP__DocumentDescription" Multiplicity="1" Role="FromRole_to_format"/>
-                <End Type="cds_yst_xce_mm_tool_ui_prep.SAP__Format" Multiplicity="1" Role="ToRole_to_format"/>
+                <End Type="cds_yst_xce_mm_tool_ui_prod.SAP__DocumentDescription" Multiplicity="1" Role="FromRole_to_format"/>
+                <End Type="cds_yst_xce_mm_tool_ui_prod.SAP__Format" Multiplicity="1" Role="ToRole_to_format"/>
                 <ReferentialConstraint>
                     <Principal Role="FromRole_to_format">
                         <PropertyRef Name="Id"/>
@@ -317,8 +221,8 @@
                 </ReferentialConstraint>
             </Association>
             <Association Name="to_tablecolumns" sap:content-version="1">
-                <End Type="cds_yst_xce_mm_tool_ui_prep.SAP__DocumentDescription" Multiplicity="1" Role="FromRole_to_tablecolumns"/>
-                <End Type="cds_yst_xce_mm_tool_ui_prep.SAP__TableColumns" Multiplicity="*" Role="ToRole_to_tablecolumns"/>
+                <End Type="cds_yst_xce_mm_tool_ui_prod.SAP__DocumentDescription" Multiplicity="1" Role="FromRole_to_tablecolumns"/>
+                <End Type="cds_yst_xce_mm_tool_ui_prod.SAP__TableColumns" Multiplicity="*" Role="ToRole_to_tablecolumns"/>
                 <ReferentialConstraint>
                     <Principal Role="FromRole_to_tablecolumns">
                         <PropertyRef Name="Id"/>
@@ -329,8 +233,8 @@
                 </ReferentialConstraint>
             </Association>
             <Association Name="to_coverpage" sap:content-version="1">
-                <End Type="cds_yst_xce_mm_tool_ui_prep.SAP__DocumentDescription" Multiplicity="1" Role="FromRole_to_coverpage"/>
-                <End Type="cds_yst_xce_mm_tool_ui_prep.SAP__CoverPage" Multiplicity="*" Role="ToRole_to_coverpage"/>
+                <End Type="cds_yst_xce_mm_tool_ui_prod.SAP__DocumentDescription" Multiplicity="1" Role="FromRole_to_coverpage"/>
+                <End Type="cds_yst_xce_mm_tool_ui_prod.SAP__CoverPage" Multiplicity="*" Role="ToRole_to_coverpage"/>
                 <ReferentialConstraint>
                     <Principal Role="FromRole_to_coverpage">
                         <PropertyRef Name="Id"/>
@@ -341,8 +245,8 @@
                 </ReferentialConstraint>
             </Association>
             <Association Name="to_signature" sap:content-version="1">
-                <End Type="cds_yst_xce_mm_tool_ui_prep.SAP__DocumentDescription" Multiplicity="1" Role="FromRole_to_signature"/>
-                <End Type="cds_yst_xce_mm_tool_ui_prep.SAP__Signature" Multiplicity="1" Role="ToRole_to_signature"/>
+                <End Type="cds_yst_xce_mm_tool_ui_prod.SAP__DocumentDescription" Multiplicity="1" Role="FromRole_to_signature"/>
+                <End Type="cds_yst_xce_mm_tool_ui_prod.SAP__Signature" Multiplicity="1" Role="ToRole_to_signature"/>
                 <ReferentialConstraint>
                     <Principal Role="FromRole_to_signature">
                         <PropertyRef Name="Id"/>
@@ -353,8 +257,8 @@
                 </ReferentialConstraint>
             </Association>
             <Association Name="to_pdfstandard" sap:content-version="1">
-                <End Type="cds_yst_xce_mm_tool_ui_prep.SAP__DocumentDescription" Multiplicity="1" Role="FromRole_to_pdfstandard"/>
-                <End Type="cds_yst_xce_mm_tool_ui_prep.SAP__PDFStandard" Multiplicity="1" Role="ToRole_to_pdfstandard"/>
+                <End Type="cds_yst_xce_mm_tool_ui_prod.SAP__DocumentDescription" Multiplicity="1" Role="FromRole_to_pdfstandard"/>
+                <End Type="cds_yst_xce_mm_tool_ui_prod.SAP__PDFStandard" Multiplicity="1" Role="ToRole_to_pdfstandard"/>
                 <ReferentialConstraint>
                     <Principal Role="FromRole_to_pdfstandard">
                         <PropertyRef Name="Id"/>
@@ -364,123 +268,224 @@
                     </Dependent>
                 </ReferentialConstraint>
             </Association>
-            <EntityContainer Name="cds_yst_xce_mm_tool_ui_prep_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx pdf">
-                <EntitySet Name="SAP__FormatSet" EntityType="cds_yst_xce_mm_tool_ui_prep.SAP__Format" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
-                <EntitySet Name="SAP__PDFStandardSet" EntityType="cds_yst_xce_mm_tool_ui_prep.SAP__PDFStandard" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
-                <EntitySet Name="SAP__TableColumnsSet" EntityType="cds_yst_xce_mm_tool_ui_prep.SAP__TableColumns" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
-                <EntitySet Name="SAP__CoverPageSet" EntityType="cds_yst_xce_mm_tool_ui_prep.SAP__CoverPage" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
-                <EntitySet Name="SAP__SignatureSet" EntityType="cds_yst_xce_mm_tool_ui_prep.SAP__Signature" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
-                <EntitySet Name="SAP__ValueHelpSet" EntityType="cds_yst_xce_mm_tool_ui_prep.SAP__ValueHelp" sap:content-version="1"/>
-                <EntitySet Name="C_MM_MaterialGroupValueHelp" EntityType="cds_yst_xce_mm_tool_ui_prep.C_MM_MaterialGroupValueHelpType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
-                <EntitySet Name="C_MM_MaterialValueHelp" EntityType="cds_yst_xce_mm_tool_ui_prep.C_MM_MaterialValueHelpType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
-                <EntitySet Name="C_MM_PlantValueHelp" EntityType="cds_yst_xce_mm_tool_ui_prep.C_MM_PlantValueHelpType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
-                <EntitySet Name="C_MM_SupplierValueHelp" EntityType="cds_yst_xce_mm_tool_ui_prep.C_MM_SupplierValueHelpType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
-                <EntitySet Name="I_CompanyCodeStdVH" EntityType="cds_yst_xce_mm_tool_ui_prep.I_CompanyCodeStdVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
-                <EntitySet Name="I_MaterialStdVH" EntityType="cds_yst_xce_mm_tool_ui_prep.I_MaterialStdVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
-                <EntitySet Name="ToolsStorLocAct" EntityType="cds_yst_xce_mm_tool_ui_prep.ToolsStorLocActType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
-                <EntitySet Name="BlockedStockOvp" EntityType="cds_yst_xce_mm_tool_ui_prep.BlockedStockOvpType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
-                <EntitySet Name="BlockedStockSmartFltr" EntityType="cds_yst_xce_mm_tool_ui_prep.BlockedStockSmartFltrType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
-                <EntitySet Name="MfgOrderToolsDOvp" EntityType="cds_yst_xce_mm_tool_ui_prep.MfgOrderToolsDOvpType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
-                <EntitySet Name="MfgOrderToolsOvp" EntityType="cds_yst_xce_mm_tool_ui_prep.MfgOrderToolsOvpType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
-                <EntitySet Name="MfgOrderToolsWOvp" EntityType="cds_yst_xce_mm_tool_ui_prep.MfgOrderToolsWOvpType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
-                <EntitySet Name="ToolLifetimeOvp" EntityType="cds_yst_xce_mm_tool_ui_prep.ToolLifetimeOvpType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
-                <EntitySet Name="SAP__Currencies" EntityType="cds_yst_xce_mm_tool_ui_prep.SAP__Currency" sap:content-version="1"/>
-                <EntitySet Name="SAP__UnitsOfMeasure" EntityType="cds_yst_xce_mm_tool_ui_prep.SAP__UnitOfMeasure" sap:content-version="1"/>
-                <EntitySet Name="SAP__MyDocumentDescriptions" EntityType="cds_yst_xce_mm_tool_ui_prep.SAP__DocumentDescription" sap:content-version="1"/>
-                <AssociationSet Name="to_formatSet" Association="cds_yst_xce_mm_tool_ui_prep.to_format" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+            <EntityContainer Name="cds_yst_xce_mm_tool_ui_prod_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx pdf">
+                <EntitySet Name="SAP__FormatSet" EntityType="cds_yst_xce_mm_tool_ui_prod.SAP__Format" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="SAP__PDFStandardSet" EntityType="cds_yst_xce_mm_tool_ui_prod.SAP__PDFStandard" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="SAP__TableColumnsSet" EntityType="cds_yst_xce_mm_tool_ui_prod.SAP__TableColumns" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="SAP__CoverPageSet" EntityType="cds_yst_xce_mm_tool_ui_prod.SAP__CoverPage" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="SAP__SignatureSet" EntityType="cds_yst_xce_mm_tool_ui_prod.SAP__Signature" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="SAP__ValueHelpSet" EntityType="cds_yst_xce_mm_tool_ui_prod.SAP__ValueHelp" sap:content-version="1"/>
+                <EntitySet Name="C_MM_MaterialValueHelp" EntityType="cds_yst_xce_mm_tool_ui_prod.C_MM_MaterialValueHelpType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="C_MM_PlantValueHelp" EntityType="cds_yst_xce_mm_tool_ui_prod.C_MM_PlantValueHelpType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="C_MM_StorLocValueHelp" EntityType="cds_yst_xce_mm_tool_ui_prod.C_MM_StorLocValueHelpType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="I_MfgOrderStdVH" EntityType="cds_yst_xce_mm_tool_ui_prod.I_MfgOrderStdVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="YST_XCE_MM_TOOL_C_D_MFGORDTOOL" EntityType="cds_yst_xce_mm_tool_ui_prod.YST_XCE_MM_TOOL_C_D_MFGORDTOOLType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="SAP__Currencies" EntityType="cds_yst_xce_mm_tool_ui_prod.SAP__Currency" sap:content-version="1"/>
+                <EntitySet Name="SAP__UnitsOfMeasure" EntityType="cds_yst_xce_mm_tool_ui_prod.SAP__UnitOfMeasure" sap:content-version="1"/>
+                <EntitySet Name="SAP__MyDocumentDescriptions" EntityType="cds_yst_xce_mm_tool_ui_prod.SAP__DocumentDescription" sap:content-version="1"/>
+                <AssociationSet Name="to_formatSet" Association="cds_yst_xce_mm_tool_ui_prod.to_format" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
                     <End EntitySet="SAP__MyDocumentDescriptions" Role="FromRole_to_format"/>
                     <End EntitySet="SAP__FormatSet" Role="ToRole_to_format"/>
                 </AssociationSet>
-                <AssociationSet Name="to_pdfstandardSet" Association="cds_yst_xce_mm_tool_ui_prep.to_pdfstandard" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                <AssociationSet Name="to_pdfstandardSet" Association="cds_yst_xce_mm_tool_ui_prod.to_pdfstandard" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
                     <End EntitySet="SAP__MyDocumentDescriptions" Role="FromRole_to_pdfstandard"/>
                     <End EntitySet="SAP__PDFStandardSet" Role="ToRole_to_pdfstandard"/>
                 </AssociationSet>
-                <AssociationSet Name="to_tablecolumnsSet" Association="cds_yst_xce_mm_tool_ui_prep.to_tablecolumns" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                <AssociationSet Name="to_tablecolumnsSet" Association="cds_yst_xce_mm_tool_ui_prod.to_tablecolumns" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
                     <End EntitySet="SAP__MyDocumentDescriptions" Role="FromRole_to_tablecolumns"/>
                     <End EntitySet="SAP__TableColumnsSet" Role="ToRole_to_tablecolumns"/>
                 </AssociationSet>
-                <AssociationSet Name="to_signatureSet" Association="cds_yst_xce_mm_tool_ui_prep.to_signature" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                <AssociationSet Name="to_signatureSet" Association="cds_yst_xce_mm_tool_ui_prod.to_signature" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
                     <End EntitySet="SAP__MyDocumentDescriptions" Role="FromRole_to_signature"/>
                     <End EntitySet="SAP__SignatureSet" Role="ToRole_to_signature"/>
                 </AssociationSet>
-                <AssociationSet Name="to_coverpageSet" Association="cds_yst_xce_mm_tool_ui_prep.to_coverpage" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                <AssociationSet Name="to_coverpageSet" Association="cds_yst_xce_mm_tool_ui_prod.to_coverpage" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
                     <End EntitySet="SAP__MyDocumentDescriptions" Role="FromRole_to_coverpage"/>
                     <End EntitySet="SAP__CoverPageSet" Role="ToRole_to_coverpage"/>
                 </AssociationSet>
             </EntityContainer>
-            <Annotations Target="cds_yst_xce_mm_tool_ui_prep.C_MM_MaterialValueHelpType/Material" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <Annotations Target="cds_yst_xce_mm_tool_ui_prod.YST_XCE_MM_TOOL_C_D_MFGORDTOOLType/ManufacturingOrder" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Production Order"/>
+                        <PropertyValue Property="CollectionPath" String="I_MfgOrderStdVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ManufacturingOrder"/>
+                                    <PropertyValue Property="ValueListProperty" String="ManufacturingOrder"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ManufacturingOrderText"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SemanticObject" String="ManufacturingOrderItem"/>
+            </Annotations>
+            <Annotations Target="cds_yst_xce_mm_tool_ui_prod.YST_XCE_MM_TOOL_C_D_MFGORDTOOLType/ProductionResourceTool" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Tool"/>
+                        <PropertyValue Property="CollectionPath" String="C_MM_MaterialValueHelp"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ProductionResourceTool"/>
+                                    <PropertyValue Property="ValueListProperty" String="Material"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Plant"/>
+                                    <PropertyValue Property="ValueListProperty" String="Plant"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="MaterialName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="PlantName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="MaterialGroup"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="MaterialGroupName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="MaterialType"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="AuthorizationGroup"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="MaterialTypeName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ProductTypeCode"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ProductTypeName"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SemanticObject" String="MondiTool"/>
+            </Annotations>
+            <Annotations Target="cds_yst_xce_mm_tool_ui_prod.YST_XCE_MM_TOOL_C_D_MFGORDTOOLType/StorageLocation" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Storage Location"/>
+                        <PropertyValue Property="CollectionPath" String="C_MM_StorLocValueHelp"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="StorageLocation"/>
+                                    <PropertyValue Property="ValueListProperty" String="StorageLocation"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Plant"/>
+                                    <PropertyValue Property="ValueListProperty" String="Plant"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="StorageLocationName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="PlantName"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_yst_xce_mm_tool_ui_prod.YST_XCE_MM_TOOL_C_D_MFGORDTOOLType/Product" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="Common.ValueList">
                     <Record>
                         <PropertyValue Property="Label" String="Material"/>
-                        <PropertyValue Property="CollectionPath" String="I_MaterialStdVH"/>
+                        <PropertyValue Property="CollectionPath" String="C_MM_MaterialValueHelp"/>
                         <PropertyValue Property="SearchSupported" Bool="true"/>
                         <PropertyValue Property="Parameters">
                             <Collection>
                                 <Record Type="Common.ValueListParameterInOut">
-                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Material"/>
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Product"/>
                                     <PropertyValue Property="ValueListProperty" String="Material"/>
                                 </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Plant"/>
+                                    <PropertyValue Property="ValueListProperty" String="Plant"/>
+                                </Record>
                                 <Record Type="Common.ValueListParameterDisplayOnly">
-                                    <PropertyValue Property="ValueListProperty" String="Material_Text"/>
+                                    <PropertyValue Property="ValueListProperty" String="MaterialName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="PlantName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="MaterialGroup"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="MaterialGroupName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="MaterialType"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="AuthorizationGroup"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="MaterialTypeName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ProductTypeCode"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ProductTypeName"/>
                                 </Record>
                             </Collection>
                         </PropertyValue>
                     </Record>
                 </Annotation>
+                <Annotation Term="Common.SemanticObject" String="Material"/>
             </Annotations>
-            <Annotations Target="cds_yst_xce_mm_tool_ui_prep.C_MM_SupplierValueHelpType/CompanyCode" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <Annotations Target="cds_yst_xce_mm_tool_ui_prod.YST_XCE_MM_TOOL_C_D_MFGORDTOOLType/Plant" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="Common.ValueList">
                     <Record>
-                        <PropertyValue Property="Label" String="Company Code"/>
-                        <PropertyValue Property="CollectionPath" String="I_CompanyCodeStdVH"/>
+                        <PropertyValue Property="Label" String="Plant"/>
+                        <PropertyValue Property="CollectionPath" String="C_MM_PlantValueHelp"/>
                         <PropertyValue Property="SearchSupported" Bool="true"/>
                         <PropertyValue Property="Parameters">
                             <Collection>
                                 <Record Type="Common.ValueListParameterInOut">
-                                    <PropertyValue Property="LocalDataProperty" PropertyPath="CompanyCode"/>
-                                    <PropertyValue Property="ValueListProperty" String="CompanyCode"/>
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Plant"/>
+                                    <PropertyValue Property="ValueListProperty" String="Plant"/>
                                 </Record>
                                 <Record Type="Common.ValueListParameterDisplayOnly">
-                                    <PropertyValue Property="ValueListProperty" String="CompanyCodeName"/>
+                                    <PropertyValue Property="ValueListProperty" String="PurchasingOrganization"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="PlantName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="PurchasingOrganizationName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CityName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="PostalCode"/>
                                 </Record>
                             </Collection>
                         </PropertyValue>
                     </Record>
                 </Annotation>
             </Annotations>
-            <Annotations Target="cds_yst_xce_mm_tool_ui_prep.cds_yst_xce_mm_tool_ui_prep_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <Annotations Target="cds_yst_xce_mm_tool_ui_prod.cds_yst_xce_mm_tool_ui_prod_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
             </Annotations>
-            <Annotations Target="cds_yst_xce_mm_tool_ui_prep.cds_yst_xce_mm_tool_ui_prep_Entities/BlockedStockOvp" xmlns="http://docs.oasis-open.org/odata/ns/edm">
-                <Annotation Term="Capabilities.FilterRestrictions">
-                    <Record>
-                        <PropertyValue Property="NonFilterableProperties">
-                            <Collection>
-                                <PropertyPath>ID</PropertyPath>
-                                <PropertyPath>NumberOfTools</PropertyPath>
-                            </Collection>
-                        </PropertyValue>
-                    </Record>
-                </Annotation>
-                <Annotation Term="Capabilities.SortRestrictions">
-                    <Record>
-                        <PropertyValue Property="NonSortableProperties">
-                            <Collection>
-                                <PropertyPath>ID</PropertyPath>
-                                <PropertyPath>NumberOfTools</PropertyPath>
-                            </Collection>
-                        </PropertyValue>
-                    </Record>
-                </Annotation>
-            </Annotations>
-            <Annotations Target="cds_yst_xce_mm_tool_ui_prep.C_MM_MaterialGroupValueHelpType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
-                <Annotation Term="Common.SemanticKey">
-                    <Collection>
-                        <PropertyPath>MaterialGroup</PropertyPath>
-                    </Collection>
-                </Annotation>
-            </Annotations>
-            <Annotations Target="cds_yst_xce_mm_tool_ui_prep.C_MM_MaterialValueHelpType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <Annotations Target="cds_yst_xce_mm_tool_ui_prod.C_MM_MaterialValueHelpType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="Common.SemanticKey">
                     <Collection>
                         <PropertyPath>Plant</PropertyPath>
@@ -488,7 +493,7 @@
                     </Collection>
                 </Annotation>
             </Annotations>
-            <Annotations Target="cds_yst_xce_mm_tool_ui_prep.C_MM_PlantValueHelpType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <Annotations Target="cds_yst_xce_mm_tool_ui_prod.C_MM_PlantValueHelpType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="Common.SemanticKey">
                     <Collection>
                         <PropertyPath>PurchasingOrganization</PropertyPath>
@@ -496,40 +501,17 @@
                     </Collection>
                 </Annotation>
             </Annotations>
-            <Annotations Target="cds_yst_xce_mm_tool_ui_prep.C_MM_SupplierValueHelpType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <Annotations Target="cds_yst_xce_mm_tool_ui_prod.C_MM_StorLocValueHelpType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="Common.SemanticKey">
                     <Collection>
-                        <PropertyPath>CompanyCode</PropertyPath>
-                        <PropertyPath>Supplier</PropertyPath>
-                    </Collection>
-                </Annotation>
-                <Annotation Term="Communication.Contact">
-                    <Record>
-                        <PropertyValue Property="adr">
-                            <Collection>
-                                <Record>
-                                    <PropertyValue Property="type" EnumMember="Communication.ContactInformationType/preferred"/>
-                                    <PropertyValue Property="country" Path="Country"/>
-                                </Record>
-                            </Collection>
-                        </PropertyValue>
-                    </Record>
-                </Annotation>
-                <Annotation Term="Communication.Address" Qualifier="pref">
-                    <Record>
-                        <PropertyValue Property="type" EnumMember="Communication.ContactInformationType/preferred"/>
-                        <PropertyValue Property="country" Path="Country"/>
-                    </Record>
-                </Annotation>
-            </Annotations>
-            <Annotations Target="cds_yst_xce_mm_tool_ui_prep.ToolLifetimeOvpType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
-                <Annotation Term="Common.SemanticKey">
-                    <Collection>
-                        <PropertyPath>Material</PropertyPath>
+                        <PropertyPath>StorageLocation</PropertyPath>
                     </Collection>
                 </Annotation>
             </Annotations>
-            <Annotations Target="cds_yst_xce_mm_tool_ui_prep.cds_yst_xce_mm_tool_ui_prep_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <Annotations Target="cds_yst_xce_mm_tool_ui_prod.YST_XCE_MM_TOOL_C_D_MFGORDTOOLType/Batch" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.SemanticObject" String="Batch"/>
+            </Annotations>
+            <Annotations Target="cds_yst_xce_mm_tool_ui_prod.cds_yst_xce_mm_tool_ui_prod_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="Org.OData.Capabilities.V1.BatchSupport">
                     <Record Type="Org.OData.Capabilities.V1.BatchSupportType">
                         <PropertyValue Property="ReferencesAcrossChangeSetsSupported" Bool="true"/>
@@ -570,18 +552,18 @@
                     </Record>
                 </Annotation>
             </Annotations>
-            <Annotations Target="cds_yst_xce_mm_tool_ui_prep.SAP__Currency/CurrencyCode" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <Annotations Target="cds_yst_xce_mm_tool_ui_prod.SAP__Currency/CurrencyCode" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__common.Text" Path="Text"/>
                 <Annotation Term="SAP__common.UnitSpecificScale" Path="DecimalPlaces"/>
                 <Annotation Term="SAP__CodeList.StandardCode" Path="ISOCode"/>
             </Annotations>
-            <Annotations Target="cds_yst_xce_mm_tool_ui_prep.SAP__UnitOfMeasure/UnitCode" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <Annotations Target="cds_yst_xce_mm_tool_ui_prod.SAP__UnitOfMeasure/UnitCode" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__common.Text" Path="Text"/>
                 <Annotation Term="SAP__common.UnitSpecificScale" Path="DecimalPlaces"/>
                 <Annotation Term="SAP__CodeList.StandardCode" Path="ISOCode"/>
                 <Annotation Term="SAP__CodeList.ExternalCode" Path="ExternalCode"/>
             </Annotations>
-            <Annotations Target="cds_yst_xce_mm_tool_ui_prep.SAP__UnitOfMeasure" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <Annotations Target="cds_yst_xce_mm_tool_ui_prod.SAP__UnitOfMeasure" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__core.AlternateKeys">
                     <Collection>
                         <Record>
@@ -597,13 +579,13 @@
                     </Collection>
                 </Annotation>
             </Annotations>
-            <Annotations Target="cds_yst_xce_mm_tool_ui_prep.SAP__DocumentDescription/CreatedBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <Annotations Target="cds_yst_xce_mm_tool_ui_prod.SAP__DocumentDescription/CreatedBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__core.Computed"/>
             </Annotations>
-            <Annotations Target="cds_yst_xce_mm_tool_ui_prep.SAP__DocumentDescription/CreatedAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <Annotations Target="cds_yst_xce_mm_tool_ui_prod.SAP__DocumentDescription/CreatedAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__core.Computed"/>
             </Annotations>
-            <Annotations Target="cds_yst_xce_mm_tool_ui_prep.SAP__DocumentDescription" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <Annotations Target="cds_yst_xce_mm_tool_ui_prod.SAP__DocumentDescription" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__capabilties.InsertRestrictions">
                     <Record>
                         <PropertyValue Property="Insertable" Bool="false"/>
@@ -641,7 +623,7 @@
                     </Record>
                 </Annotation>
             </Annotations>
-            <Annotations Target="cds_yst_xce_mm_tool_ui_prep.SAP__Format/FitToPage/ErrorRecoveryBehavior" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <Annotations Target="cds_yst_xce_mm_tool_ui_prod.SAP__Format/FitToPage/ErrorRecoveryBehavior" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__common.ValueListReferences">
                     <Record>
                         <PropertyValue Property="Url" String="./$metadata"/>
@@ -650,7 +632,7 @@
                 </Annotation>
                 <Annotation Term="SAP__common.ValueListWithFixedValues"/>
             </Annotations>
-            <Annotations Target="cds_yst_xce_mm_tool_ui_prep.SAP__Format/FontName" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <Annotations Target="cds_yst_xce_mm_tool_ui_prod.SAP__Format/FontName" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__common.ValueListReferences">
                     <Record>
                         <PropertyValue Property="Url" String="./$metadata"/>
@@ -659,7 +641,7 @@
                 </Annotation>
                 <Annotation Term="SAP__common.ValueListWithFixedValues"/>
             </Annotations>
-            <Annotations Target="cds_yst_xce_mm_tool_ui_prep.SAP__Format/PaperSize" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <Annotations Target="cds_yst_xce_mm_tool_ui_prod.SAP__Format/PaperSize" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__common.ValueListReferences">
                     <Record>
                         <PropertyValue Property="Url" String="./$metadata"/>
@@ -668,7 +650,7 @@
                 </Annotation>
                 <Annotation Term="SAP__common.ValueListWithFixedValues"/>
             </Annotations>
-            <Annotations Target="cds_yst_xce_mm_tool_ui_prep.SAP__Format/Orientation" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <Annotations Target="cds_yst_xce_mm_tool_ui_prod.SAP__Format/Orientation" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__common.ValueListReferences">
                     <Record>
                         <PropertyValue Property="Url" String="./$metadata"/>
@@ -677,7 +659,7 @@
                 </Annotation>
                 <Annotation Term="SAP__common.ValueListWithFixedValues"/>
             </Annotations>
-            <Annotations Target="cds_yst_xce_mm_tool_ui_prep.SAP__TableColumns/HorizontalAlignment" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <Annotations Target="cds_yst_xce_mm_tool_ui_prod.SAP__TableColumns/HorizontalAlignment" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="SAP__common.ValueListReferences">
                     <Record>
                         <PropertyValue Property="Url" String="./$metadata"/>
@@ -686,8 +668,8 @@
                 </Annotation>
                 <Annotation Term="SAP__common.ValueListWithFixedValues"/>
             </Annotations>
-            <atom:link rel="self" href="https://aioss4s0.aio-sap.os.itelligence.de/sap/opu/odata/sap/YST_XCE_MM_TOOL_UI_PREP/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
-            <atom:link rel="latest-version" href="https://aioss4s0.aio-sap.os.itelligence.de/sap/opu/odata/sap/YST_XCE_MM_TOOL_UI_PREP/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="self" href="https://aioss4s0.aio-sap.os.itelligence.de/sap/opu/odata/sap/YST_XCE_MM_TOOL_UI_PROD/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://aioss4s0.aio-sap.os.itelligence.de/sap/opu/odata/sap/YST_XCE_MM_TOOL_UI_PROD/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
         </Schema>
     </edmx:DataServices>
 </edmx:Edmx>

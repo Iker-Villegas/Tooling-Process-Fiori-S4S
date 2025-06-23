@@ -35,10 +35,10 @@ server:
       configuration:
         mountPath: /
         services:
-          - urlPath: /sap/opu/odata/sap/YST_XCE_MM_TOOL_UI_PREP
+          - urlPath: /sap/opu/odata/sap/YST_XCE_MM_TOOL_UI_PROD
             metadataPath: ./webapp/localService/mainService/metadata.xml
             mockdataPath: ./webapp/localService/mainService/data
             generateMockData: true
         annotations:
-          - localPath: ./webapp/localService/mainService/YST_XCE_MM_TOOL_UI_PREP_VAN.xml
-            urlPath: /sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='YST_XCE_MM_TOOL_UI_PREP_VAN',Version='0001')/$value/
+          - localPath: ./webapp/localService/mainService/YST_XCE_MM_TOOL_UI_PROD_VAN.xml
+            urlPath: /sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='YST_XCE_MM_TOOL_UI_PROD_VAN',Version='0001')/$value/

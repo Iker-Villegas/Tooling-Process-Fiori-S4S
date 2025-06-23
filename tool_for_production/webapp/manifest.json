@@ -13,14 +13,14 @@
     "sourceTemplate": {
       "id": "@sap/generator-fiori:lrop",
       "version": "1.17.1",
-      "toolsId": "8b3399f3-4024-4bd8-9e27-788e50fe6b74"
+      "toolsId": "593c9be8-4ca1-4810-a49e-11170c8ed786"
     },
     "dataSources": {
-      "YST_XCE_MM_TOOL_UI_PREP_VAN": {
-        "uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='YST_XCE_MM_TOOL_UI_PREP_VAN',Version='0001')/$value/",
+      "YST_XCE_MM_TOOL_UI_PROD_VAN": {
+        "uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='YST_XCE_MM_TOOL_UI_PROD_VAN',Version='0001')/$value/",
         "type": "ODataAnnotation",
         "settings": {
-          "localUri": "localService/mainService/YST_XCE_MM_TOOL_UI_PREP_VAN.xml"
+          "localUri": "localService/mainService/YST_XCE_MM_TOOL_UI_PROD_VAN.xml"
         }
       },
       "annotation": {
@@ -31,11 +31,11 @@
         }
       },
       "mainService": {
-        "uri": "/sap/opu/odata/sap/YST_XCE_MM_TOOL_UI_PREP/",
+        "uri": "/sap/opu/odata/sap/YST_XCE_MM_TOOL_UI_PROD/",
         "type": "OData",
         "settings": {
           "annotations": [
-            "YST_XCE_MM_TOOL_UI_PREP_VAN",
+            "YST_XCE_MM_TOOL_UI_PROD_VAN",
             "annotation"
           ],
           "localUri": "localService/mainService/metadata.xml",
@@ -133,8 +133,8 @@
       "showDraftToggle": false
     },
     "pages": {
-      "ListReport|MfgOrderToolsOvp": {
-        "entitySet": "MfgOrderToolsOvp",
+      "ListReport|YST_XCE_MM_TOOL_C_D_MFGORDTOOL": {
+        "entitySet": "YST_XCE_MM_TOOL_C_D_MFGORDTOOL",
         "component": {
           "name": "sap.suite.ui.generic.template.ListReport",
           "list": true,
@@ -153,8 +153,8 @@
           }
         },
         "pages": {
-          "ObjectPage|MfgOrderToolsOvp": {
-            "entitySet": "MfgOrderToolsOvp",
+          "ObjectPage|YST_XCE_MM_TOOL_C_D_MFGORDTOOL": {
+            "entitySet": "YST_XCE_MM_TOOL_C_D_MFGORDTOOL",
             "defaultLayoutTypeIfExternalNavigation": "MidColumnFullScreen",
             "component": {
               "name": "sap.suite.ui.generic.template.ObjectPage"
