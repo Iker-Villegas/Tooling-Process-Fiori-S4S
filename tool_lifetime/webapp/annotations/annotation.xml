@@ -8,8 +8,8 @@
     <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Communication.xml">
         <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
     </edmx:Reference>
-    <edmx:Reference Uri="/sap/opu/odata/sap/YST_XCE_MM_TOOL_UI_USAGE/$metadata">
-        <edmx:Include Namespace="cds_yst_xce_mm_tool_ui_usage"/>
+    <edmx:Reference Uri="/sap/opu/odata/sap/YST_XCE_MM_TOOL_UI_LIFETI/$metadata">
+        <edmx:Include Namespace="cds_yst_xce_mm_tool_ui_lifeti"/>
     </edmx:Reference>
     <edmx:DataServices>
         <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="local">

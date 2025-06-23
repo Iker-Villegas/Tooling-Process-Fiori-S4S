@@ -1,26 +1,26 @@
 ## Application Details
 |               |
 | ------------- |
-|**Generation Date and Time**<br>Tue Jun 24 2025 00:22:56 GMT+0200 (Central European Summer Time)|
+|**Generation Date and Time**<br>Tue Jun 24 2025 00:18:32 GMT+0200 (Central European Summer Time)|
 |**App Generator**<br>@sap/generator-fiori-elements|
 |**App Generator Version**<br>1.17.1|
 |**Generation Platform**<br>Visual Studio Code|
 |**Template Used**<br>List Report Page V2|
 |**Service Type**<br>SAP System (ABAP On Premise)|
-|**Service URL**<br>https://aioss4s0.aio-sap.os.itelligence.de/sap/opu/odata/sap/YST_XCE_MM_TOOL_UI_USAGE|
-|**Module Name**<br>tool_usage|
-|**Application Title**<br>Tool Usage|
+|**Service URL**<br>https://aioss4s0.aio-sap.os.itelligence.de/sap/opu/odata/sap/YST_XCE_MM_TOOL_UI_LIFETI|
+|**Module Name**<br>tool_lifetime|
+|**Application Title**<br>Tool Lifetime|
 |**Namespace**<br>|
 |**UI5 Theme**<br>sap_horizon|
 |**UI5 Version**<br>1.108.9|
 |**Enable Code Assist Libraries**<br>False|
 |**Enable TypeScript**<br>False|
 |**Add Eslint configuration**<br>False|
-|**Main Entity**<br>YST_XCE_MM_TOOL_C_D_TOOLUSAORD|
+|**Main Entity**<br>YST_XCE_MM_TOOL_C_D_TOOLLIFE|
 
-## tool_usage
+## tool_lifetime
 
-S4T-XCE-MM: TLP - Tool Usage
+An SAP Fiori application.
 
 ### Starting the generated app
 

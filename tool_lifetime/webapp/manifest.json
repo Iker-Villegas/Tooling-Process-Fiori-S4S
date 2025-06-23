@@ -1,7 +1,7 @@
 {
   "_version": "1.48.0",
   "sap.app": {
-    "id": "toolusage",
+    "id": "toollifetime",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -13,14 +13,14 @@
     "sourceTemplate": {
       "id": "@sap/generator-fiori:lrop",
       "version": "1.17.1",
-      "toolsId": "c3f0ee92-8206-4ed7-a9f5-82ed75b12155"
+      "toolsId": "daf9a8c2-843d-460e-9a82-8b3e3ae8423a"
     },
     "dataSources": {
-      "YST_XCE_MM_TOOL_UI_USAGE_VAN": {
-        "uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='YST_XCE_MM_TOOL_UI_USAGE_VAN',Version='0001')/$value/",
+      "YST_XCE_MM_TOOL_UI_LIFETI_VAN": {
+        "uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='YST_XCE_MM_TOOL_UI_LIFETI_VAN',Version='0001')/$value/",
         "type": "ODataAnnotation",
         "settings": {
-          "localUri": "localService/mainService/YST_XCE_MM_TOOL_UI_USAGE_VAN.xml"
+          "localUri": "localService/mainService/YST_XCE_MM_TOOL_UI_LIFETI_VAN.xml"
         }
       },
       "annotation": {
@@ -31,11 +31,11 @@
         }
       },
       "mainService": {
-        "uri": "/sap/opu/odata/sap/YST_XCE_MM_TOOL_UI_USAGE/",
+        "uri": "/sap/opu/odata/sap/YST_XCE_MM_TOOL_UI_LIFETI/",
         "type": "OData",
         "settings": {
           "annotations": [
-            "YST_XCE_MM_TOOL_UI_USAGE_VAN",
+            "YST_XCE_MM_TOOL_UI_LIFETI_VAN",
             "annotation"
           ],
           "localUri": "localService/mainService/metadata.xml",
@@ -45,10 +45,10 @@
     },
     "crossNavigation": {
       "inbounds": {
-        "tool_usage-Usage": {
-          "semanticObject": "tool_usage",
-          "action": "Usage",
-          "title": "{{tool_usage-Usage.flpTitle}}",
+        "tool_lifetime-Lifetime": {
+          "semanticObject": "tool_lifetime",
+          "action": "Lifetime",
+          "title": "{{tool_lifetime-Lifetime.flpTitle}}",
           "signature": {
             "parameters": {},
             "additionalParameters": "allowed"
@@ -95,7 +95,7 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "toolusage.i18n.i18n"
+          "bundleName": "toollifetime.i18n.i18n"
         }
       },
       "": {
@@ -133,8 +133,8 @@
       "showDraftToggle": false
     },
     "pages": {
-      "ListReport|YST_XCE_MM_TOOL_C_D_TOOLUSAORD": {
-        "entitySet": "YST_XCE_MM_TOOL_C_D_TOOLUSAORD",
+      "ListReport|YST_XCE_MM_TOOL_C_D_TOOLLIFE": {
+        "entitySet": "YST_XCE_MM_TOOL_C_D_TOOLLIFE",
         "component": {
           "name": "sap.suite.ui.generic.template.ListReport",
           "list": true,
@@ -153,8 +153,8 @@
           }
         },
         "pages": {
-          "ObjectPage|YST_XCE_MM_TOOL_C_D_TOOLUSAORD": {
-            "entitySet": "YST_XCE_MM_TOOL_C_D_TOOLUSAORD",
+          "ObjectPage|YST_XCE_MM_TOOL_C_D_TOOLLIFE": {
+            "entitySet": "YST_XCE_MM_TOOL_C_D_TOOLLIFE",
             "defaultLayoutTypeIfExternalNavigation": "MidColumnFullScreen",
             "component": {
               "name": "sap.suite.ui.generic.template.ObjectPage"

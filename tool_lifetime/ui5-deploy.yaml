@@ -2,7 +2,7 @@
 
 specVersion: "3.1"
 metadata:
-  name: toolusage
+  name: toollifetime
 type: application
 builder:
   resources:
@@ -17,8 +17,8 @@ builder:
           url: https://aioss4s0.aio-sap.os.itelligence.de
           client: '100'
         app:
-          name: YST_TOOL_USAGE
-          description: 'S4T-XCE-MM: Tool Usage'
+          name: YST_TOOL_LIFETI
+          description: 'S4T-XCE-MM: TLP - Tool Lifetime'
           package: YST_XCE_MM_TOOL
           transport: S4SK900754
         exclude:
